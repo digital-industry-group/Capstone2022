@@ -1,6 +1,11 @@
 from app import app
+from flask import jsonify
 
-@app.route('/')
 @app.route('/test')
 def test():
-    return "Hello."
+    data = {
+        "response": "hello",
+        "other stuff": "there"
+    }
+
+    return jsonify(data)
