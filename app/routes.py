@@ -1,5 +1,10 @@
-from app import app
+#from app import app
 from flask import jsonify
+from api_keys import MAIL_CHIMP_KEY
+import requests
+import mailchimp_marketing
+
+
 
 @app.route('/test')
 def test():
@@ -9,3 +14,20 @@ def test():
     }
 
     return jsonify(data)
+
+    
+@app.route("/mailChimp")
+def show_book_info():
+    """Return test data for MailChimp."""
+
+    # test_id = cf88bd0ae9
+  
+
+    resp = requests.get('https://my.website.com/rest/path', auth= ('anystring', MAIL_CHIMP_KEY))
+
+        
+
+    mail_chimp = resp.json()
+
+    # using the APIs JSON data, return that to browser
+    return jsonify(book_data)
