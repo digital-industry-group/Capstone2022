@@ -1,4 +1,0 @@
-
-
-
-MAIL_CHIMP_KEY = "f31e1fb7afa4651d857e66d03e1eebb8-us17"

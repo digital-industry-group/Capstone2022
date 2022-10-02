@@ -2,7 +2,7 @@
 from flask import jsonify
 from api_keys import MAIL_CHIMP_KEY
 import requests
-import mailchimp_marketing
+
 
 
 
