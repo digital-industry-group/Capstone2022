@@ -130,3 +130,6 @@ dmypy.json
 
 # API KEYS
 api_keys.py
+.api_keys
+.api_keys.py
+

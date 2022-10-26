@@ -1,6 +1,6 @@
 #from app import app
 from flask import jsonify
-from api_keys import MAIL_CHIMP_KEY
+from Capstone2022.api_keys import MAIL_CHIMP_KEY
 import requests
 
 
