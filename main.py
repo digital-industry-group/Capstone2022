@@ -1,6 +1,6 @@
 import pandas as pd
 import GoogleAnalytics as ga
-#from app import app
+from app import app
 import json
 
 dimensions_list = [

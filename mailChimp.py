@@ -1,5 +1,5 @@
-import pandas as pd
-import api_keys
+#import Capstone2022.app.api_keys as api_keys
+import api_keys as api_keys
 from flask import Flask, request, jsonify
 from mailchimp_marketing.api_client import ApiClientError
 import mailchimp_marketing as MailchimpMarketing
@@ -15,7 +15,46 @@ client.set_config({
     "server": SERVER_PREFIX
 })
 
+@app.route('/', methods=['GET'])
+def index():
+    return 'DIG Marketing Reports'
 
+# Campaigns
+@app.route('/campaigns', methods=['GET'])
+def list_campaigns():
+    try:
+        response = client.campaigns.list()
+        camp = response['campaigns']
+        print(response)
+        return jsonify(camp)
+    except ApiClientError as error:
+        print("Error: {}".format(error.text))
+        return jsonify(error.text)
+
+# Reports
+@app.route('/reports', methods=['GET'])
+def reports():
+    try:
+        response = client.reports.get_all_campaign_reports()
+        print(response)
+        return jsonify(response)
+    except ApiClientError as error:
+        print("Error: {}".format(error.text))
+        return jsonify(error.text)
+
+#Click Reports      
+
+@app.route('/reports/<campaign_id>/clicks', methods = ['GET']) 
+def clicks(campaign_id):
+    try:     
+        response = client.reports.get_campaign_click_details(campaign_id)
+        print(response)
+        return jsonify(response)
+    except ApiClientError as error:
+        print("Error: {}".format(error.text))
+        return jsonify(error.text)
+
+ 
 # lists
 @app.route('/lists', methods=['GET'])
 def get_lists_info():
@@ -23,7 +62,7 @@ def get_lists_info():
         response = client.lists.get_all_lists()
         id = response['lists'][0]['id']
         print(response)
-        return jsonify(id)
+        return jsonify(response)
     except ApiClientError as error:
         print("Error: {}".format(error.text))
         return jsonify(error.text)
@@ -63,17 +102,6 @@ def add_list():
         return jsonify(error.text)
 
 
-@app.route('/lists/<list_id>', methods=['DELETE'])
-def delete_list(list_id):
-    try:
-        response = client.lists.delete_list(list_id)
-        print(response)
-        return jsonify("Successfully deleted.")
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
-
-
 # members
 @app.route('/lists/<list_id>/members', methods=['GET'])
 def list_members_info(list_id):
@@ -86,32 +114,6 @@ def list_members_info(list_id):
         return jsonify(error.text)
 
 
-@app.route('/lists/<list_id>/members', methods=['POST'])
-def add_member_to_list(list_id):
-    try:
-        request_data = request.get_json()
-        member_info = {
-            "email_address": request_data['email_address'],
-            "status": request_data['status']
-        }
-        response = client.lists.add_list_member(list_id, member_info)
-        print("response: {}".format(response))
-        return jsonify(response)
-    except ApiClientError as error:
-        print("An exception occurred: {}".format(error.text))
-        return jsonify(error.text)
-
-
-# Campaigns
-@app.route('/campaigns', methods=['GET'])
-def list_campaigns():
-    try:
-        response = client.campaigns.list()
-        print(response)
-        return jsonify(response)
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
 
 
 @app.route('/campaigns', methods=['POST'])
@@ -158,7 +160,7 @@ def ping():
     except ApiClientError as error:
         print("Error: {}".format(error.text))
         return jsonify(error.text)
-
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
