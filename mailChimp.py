@@ -19,6 +19,26 @@ client.set_config({
 def index():
     return 'DIG Marketing Reports'
 
+# Report Summary
+@app.route('/reports', methods=['GET'])
+def reports():
+    try:
+        response = client.reports.get_all_campaign_reports()
+        #get_data = jsonify(response)
+        reports = response['reports']
+        total_items =  response['total_items']
+        campaign_title = response['reports'][1]['campaign_title']
+        for x in range(total_items):
+            print(reports[x]['campaign_title'])
+        #print(campaign_title)
+        
+        
+        #print(response)
+        return jsonify(reports)
+    except ApiClientError as error:
+        print("Error: {}".format(error.text))
+        return jsonify(error.text)
+
 # Campaigns
 @app.route('/campaigns', methods=['GET'])
 def list_campaigns():
@@ -31,16 +51,7 @@ def list_campaigns():
         print("Error: {}".format(error.text))
         return jsonify(error.text)
 
-# Reports
-@app.route('/reports', methods=['GET'])
-def reports():
-    try:
-        response = client.reports.get_all_campaign_reports()
-        print(response)
-        return jsonify(response)
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
+
 
 #Click Reports      
 
@@ -114,40 +125,6 @@ def list_members_info(list_id):
         return jsonify(error.text)
 
 
-
-
-@app.route('/campaigns', methods=['POST'])
-def add_campaign():
-    try:
-        response = client.campaigns.create({"type": "regular"})
-        print(response)
-        return jsonify(response)
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
-
-
-@app.route('/campaigns/<campaign_id>/actions/send', methods=['POST'])
-def send_campaign(campaign_id):
-    try:
-        response = client.campaigns.send(campaign_id)
-        print(response)
-        return jsonify(response)
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
-
-
-@app.route('/campaigns/<campaign_id>/actions/test', methods=['POST'])
-def send_test_email(campaign_id):
-    try:
-        response = client.campaigns.send_test_email(campaign_id, {"test_emails": [
-                                                    "n574838382000@gmail.com"], "send_type": "plaintext"})
-        print(response)
-        return jsonify(True)
-    except ApiClientError as error:
-        print("Error: {}".format(error.text))
-        return jsonify(error.text)
 
 
 # ping
