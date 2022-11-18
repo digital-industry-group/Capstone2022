@@ -1,1 +1,2 @@
-FLASK_APP=main.py
+FLASK_APP=mailChimp.py
+FLASK_DEBUG=1

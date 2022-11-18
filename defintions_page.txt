@@ -1,0 +1,85 @@
+
+
+    Recipients
+    The number of contacts the campaign was sent to.
+
+    Audience
+    Which audience the recipients belong to.
+
+    Subject
+    The subject line of your email.
+
+    Delivered
+    The date and time the campaign completed sending from Mailchimp servers.
+    
+    Orders
+    The number of orders made from your campaign.
+
+    Average order revenue
+    The average amount of revenue from each order made from your campaign.
+
+    Total order revenue
+    The total amount of revenue earned from your campaign.
+
+    Click performance
+    This section includes a list of the URLs that were clicked the most in the campaign, as well as a link to your Click Map.
+
+    Campaign benchmarking
+    How your campaign performance compares to that of your peers. Learn more about campaign benchmarking.
+
+    Open rate
+    The percentage of successfully delivered campaigns that registered as an open. We also show the average open rate for your audience. If your report includes campaign benchmarking, this information will appear there instead.
+    
+    Click rate
+    The percentage of successfully delivered campaigns that registered a click. We also show the average click rate for your audience. If your report includes campaign benchmarking, this information will appear there instead.
+    
+    Opened
+    The number of recipients who opened this campaign any number of times.
+    
+    Clicked
+    The number of recipients who clicked any tracked link any number of times in this campaign.
+    
+    Bounced
+    The number of recipients who registered as a hard or soft bounce.
+    
+    Unsubscribed
+    The number of recipients who opted out of your emails using the unsubscribe link in this campaign.
+    
+    Total opens
+    The total number of times the campaign was opened by recipients. This count includes multiple opens from individual recipients.
+    
+    Successful deliveries
+    The number of recipients who didn't hard or soft bounce on this campaign.
+    
+    Clicks per unique opens
+    The percentage of recipients who registered as an open who also clicked a link in your campaign.
+    
+    Total clicks
+    The total number of times tracked links were clicked by recipients. This count includes multiple clicks from individual recipients
+    
+    Forwarded
+    The number of times the campaign was forwarded using the Forward to a Friend form. This stat considers forwards only through the Forward to a Friend form and is not able to detect when a recipient uses the forwarding function in their email program.
+    
+    Forwarded opens
+    The number of times the campaign was opened by someone who was forwarded the campaign using a Forward to a Friend form.
+    
+    Abuse reports
+    The number of recipients who reported your email as spam. Contacts who report a campaign as spam are automatically unsubscribed from your emails.
+    
+    Last opened
+    The most recent instance of a recipient opening the campaign.
+    
+    Last clicked
+    The most recent instance of a recipient clicking a tracked link in the campaign.
+    
+    24-hour performance
+    A graph detailing recipient opens and clicks for the first 24 hours after the campaign was sent.
+    
+    Subscribers with most opens
+    The recipients who opened the campaign the most times.
+    
+    Social performance
+    Provides a bird's-eye view of how well your campaign is doing across different social media outlets.
+    
+    Top locations
+    Uses geolocation to display where in the world your recipients are opening your campaigns.
