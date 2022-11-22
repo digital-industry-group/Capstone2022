@@ -3,40 +3,23 @@
 
 ## Project Setup
 ```
-pip install pandas
-```
-### Google Analytics Libraries
-```
-pip install google-api-python-client
-pip install --upgrade oauth2client
-```
-### Mailchimp API
-```
-pip install mailchimp-marketing
+~This command is for creating the virtual env~
+python -m venv venv
 
-```
-## Flask-cors: For handling cross-origin resource access (connect back end with front end).
-```
-$ pip install -U flask-cors
-```
-## Fask-marshmellow
+~then you have to activate the env~
 
-## Use following command to run the flask app
-```
-flask run
+for windows, type this command for activating the env : '\venv\Scripts\activate
+for mac or linux, type this command to activate the env: source venv/bin/activate
 
+then use command to run:  Flask Run
 ```
 
 <!-- 
-To set up our Flask environment, we will use pipenv.
+flask_smorest is the package to create the api with flask,
 
-To check if you have pipenv installed, run the following command:
+this package provides api swagger doccumentation.
 
-python -m pipenv --version
-If you don’t have it installed, run the following command:
+after running the application go to this url.
 
-pip install pipenv
-Initialize the environment by running:
-
-python -m pipenv shell
+http://127.0.0.1:5000/docs
  -->

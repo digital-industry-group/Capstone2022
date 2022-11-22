@@ -1,2 +1,0 @@
-FLASK_APP=mailChimp.py
-FLASK_DEBUG=1
