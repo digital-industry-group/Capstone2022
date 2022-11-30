@@ -1,2 +1,2 @@
-FLASK_APP=mailChimp.py
-FLASK_DEBUG=1
+FLASK_APP=app
+FLASK_DEBUG=True
