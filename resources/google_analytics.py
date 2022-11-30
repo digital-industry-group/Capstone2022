@@ -6,6 +6,7 @@ from repository import GoogleAnalytics as ga
 from repository import dimensionsMetricsGA as dm
 import json
 
+#Blueprints provide separation at the Flask level dividing flask app into multiple sections
 blp = Blueprint("GoogleAnalytics", "googleanalytics", description="Operations on Google analytics")
 
 
