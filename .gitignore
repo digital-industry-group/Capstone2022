@@ -142,3 +142,8 @@ app/api_keys
 app/api_keys.py
 
 
+# Google Analytics KEYS
+Keys/GoogleAnalyticsKey.json
+Keys/GoogleAnalyticsKey
+.Keys/GoogleAnalyticsKey.json
+.Keys/GoogleAnalyticsKey
