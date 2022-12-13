@@ -5,10 +5,20 @@ import pandas as pd
 from repository import GoogleAnalytics as ga
 from repository import dimensionsMetricsGA as dm
 import json
+import copy
 
 #Blueprints provide separation at the Flask level dividing flask app into multiple sections
 blp = Blueprint("GoogleAnalytics", "googleanalytics", description="Operations on Google analytics")
 
+def remove_GA(input):
+    output = copy.deepcopy(input)
+    for x in range(len(input)):
+        print(x,"\n")
+        for old_key in input[x]:
+            print(old_key)
+            new_key = old_key.replace("ga:","")
+            output[x][new_key] = output[x].pop(old_key)
+    return output    
 
 class Report_Controller():
     def __init__(self, ga_dimensions, ga_metrics, s_date, e_date):
@@ -53,8 +63,9 @@ class BasicReportData(MethodView):
         basic_report = Report_Controller(dm.dimensions_basic_report, dm.metrics_basic_report, dm.start_date,
                                          dm.end_date)
         output = json.loads(basic_report.run_ga_report())
-        # print(type(output))
-        return jsonify(output)
+        #print(type(output))
+        out = remove_GA(output)
+        return jsonify(out)
 
 
 @blp.route("/user/overview")
@@ -63,7 +74,9 @@ class UsersOverviewData(MethodView):
     def get(self):
         users_overview = Report_Controller(dm.dimensions_users_overview, dm.metrics_users_overview, 2, 0)
         output = json.loads(users_overview.run_ga_report())
-        return jsonify(output)
+
+        out = remove_GA(output)
+        return jsonify(out)
 
 
 @blp.route("/user/geographics")
@@ -73,7 +86,8 @@ class UsersGeographicsData(MethodView):
         users_geographics = Report_Controller(dm.dimensions_users_geographics, dm.metrics_users_overview, dm.start_date,
                                               dm.end_date)
         output = json.loads(users_geographics.run_ga_report())
-        return jsonify(output)
+        out = remove_GA(output)
+        return jsonify(out)
 
 
 @blp.route("/user/acquisition")
@@ -82,4 +96,5 @@ class UsersAcquisitionData(MethodView):
     def get(self):
         users_acquisition = Report_Controller(dm.dimensions_users_acquisition, dm.metrics_users_overview, 80, 1)
         output = json.loads(users_acquisition.run_ga_report())
-        return jsonify(output)
+        out = remove_GA(output)
+        return jsonify(out)
