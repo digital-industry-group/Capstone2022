@@ -44,8 +44,8 @@ class Reports(MethodView):
                 "forwards": reports[x]['forwards'],
                 "opens": reports[x]['opens'],
                 "clicks": reports[x]['clicks'],
-                "list_stats": reports[x]['list_stats'],
-                "timeseries": reports[x]['timeseries']
+                "list_stats": reports[x]['list_stats']
+                #"timeseries": reports[x]['timeseries']
             } for x in range(total_items)]
 
             output = {'reports': final_report, 'total_items': total_items}
