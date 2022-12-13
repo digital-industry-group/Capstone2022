@@ -4,9 +4,12 @@
 
 1. This command is for creating the virtual env: python -m venv venv
 
-2. Activate the env:
+2a. Activate the env:
 for windows, type this command for activating the env : '\venv\Scripts\activate
 for mac or linux, type this command to activate the env: source venv/bin/activate
+
+2b. To add missing api key go to .env copy file and delete "copy" so you only see .env
+    then put in the mailchimp api key inside the area where its missing. 
 
 3. After activating install the all the packages with this command: pip install -r requirements.txt
 
