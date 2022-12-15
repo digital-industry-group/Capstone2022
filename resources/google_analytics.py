@@ -76,7 +76,7 @@ class UsersOverviewData(MethodView):
         output = json.loads(users_overview.run_ga_report())
 
         out = remove_GA(output)
-        return jsonify(out[0])
+        return jsonify(out)
 
 
 @blp.route("/user/geographics")
